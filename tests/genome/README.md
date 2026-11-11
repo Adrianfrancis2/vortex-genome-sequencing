@@ -6,9 +6,17 @@ alignment ran (GCUPS), followed by the total number of cases passed.
 
 ```bash
 python3 tests/genome/align_check.py program.c
-python3 tests/genome/align_check.py runner.c third_party/ksw2/ksw2_extz2_sse.c \
-    --cflags "-O3 -march=native -Ithird_party/ksw2"
 ```
+
+KSW2 (`git submodule update --init third_party/ksw2` first):
+
+```bash
+python3 tests/genome/align_check.py tests/regression/ksw2/ref/ksw2_score.c \
+    third_party/ksw2/ksw2_extz2_sse.c --cflags "-O3 -march=native -Ithird_party/ksw2"
+```
+
+KSW2 has no score for an empty sequence (it returns `KSW_NEG_INF`), so the
+cases with an empty query or target fail for it.
 
 Every `.c` file given is compiled together with `gcc` (`--cc` to change it)
 and `--cflags` (default `-O3 -march=native`).
