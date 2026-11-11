@@ -1,0 +1,25 @@
+# Hand-picked global-alignment cases, scored with match 2, mismatch 4, N 1,
+# gap open 4, gap extend 2 (a gap of length k costs 4 + 2k).
+# Columns: id query target expected. "-" is the empty sequence.
+c01_both_empty               -            -              0
+c02_query_empty              -            ACG          -10
+c03_target_empty             ACG          -            -10
+c04_single_match             A            A              2
+c05_single_mismatch          A            C             -4
+c06_len1_vs_len2             A            AC            -4
+c07_identical                ACGTACGT     ACGTACGT      16
+c08_one_mismatch             ACGTACGT     ACGAACGT      10
+c09_mismatches_beat_gaps     AAAA         CCCC         -16
+c10_gaps_beat_mismatches     ACGTACGT     CGTACGTA       2
+c11_gap_in_query             ACGTCGTAC    ACGTACGTAC    12
+c12_gap_in_target            ACGTACGTAC   ACGTCGTAC     12
+c13_leading_gap              ACGTACGT     TTACGTACGT     8
+c14_trailing_gap             ACGTACGT     ACGTACGTTT     8
+c15_one_gap_opened_once      ACGTTGCA     ACGTCCCTGCA    6
+c16_two_gaps_opened_twice    ACGTACGTACGT ACGTAACGTACCGT 12
+c17_long_gap_beats_mismatch  ACGTAACGTA   ACGTAGGGGGGACGTA 4
+c18_ambiguous_N              ACNT         ACGT           5
+c19_homopolymer              AAAAA        AAAA           2
+c20_tandem_repeat            ACACACAC     ACACAC         4
+c21_query_much_shorter       ACGT         GGGGGGGGGGGGACGTGGGGGGGGGGGG -48
+c22_query_much_longer        GGGGGGGGGGGGACGTGGGGGGGGGGGG ACGT -48
