@@ -16,7 +16,7 @@ TESTS := \
     async_barrier async_gbarrier gbar_phase bar_slot_phase packld wgather wsync quad_lod \
     occupancy multikernel reopen module_reload single_cta            \
     flush_coherence lazy_fetch sector_merge raw_order cache_ways chase \
-    vm_test vm_fault vm_stress
+    vm_test vm_fault vm_stress ksw2
 
 # --- common exclude list ---------------------------------------------
 EXCLUDE :=
